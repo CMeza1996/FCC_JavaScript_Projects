@@ -1,0 +1,21 @@
+/*A ROT13 endoded word is a word, where every letter has been shifted 13 places to hide its meaning.
+  This script will take in a ROT13 endoded word and return its un-encoded form*/
+  
+  function rot13(str) {
+  let result = "";
+  let alphStart = "ABCDEFGHIJKLM";
+  let alphEnd = "NOPQRSTUVWXYZ";
+  for (let i = 0; i < str.length; i++) {
+    let startLetter = str[i];
+    if (alphStart.indexOf(startLetter) >= 0) {           /*Check if the letter is part of the first 13 alphabet letters. */
+      result += alphEnd[alphStart.indexOf(startLetter)]; /*Match the letter to its ROT13 endoded letter*/
+    } else if (alphEnd.indexOf(startLetter) >= 0) {      /*Check if the letter is part of the last 13 alphabet letters. */
+      result += alphStart[alphEnd.indexOf(startLetter)]; /*Match the letter to its ROT13 endoded letter*/
+    } else {
+      result += startLetter;
+    }
+  }
+  return result;
+}
+
+console.log(rot13("SERR PBQR PNZC"));
