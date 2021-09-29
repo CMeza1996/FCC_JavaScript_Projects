@@ -1,0 +1,16 @@
+/*The script will return true if the given word is a palindrome or false if the word is not a palindrome. 
+A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.*/
+
+function palindrome(str) {
+  let newStr = str.replace(/\W+|_/g, "").toLowerCase();
+  let revStr = newStr.split("").reverse().join("");
+  console.log(newStr, revStr);
+  if (newStr != revStr) {
+    return false;
+  }
+  return true;
+}
+
+
+
+palindrome("_eye");
